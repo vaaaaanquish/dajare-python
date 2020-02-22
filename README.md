@@ -2,14 +2,16 @@
 
 皆さんに *幸* が訪れる駄洒落の *検索(Search)* を行うスクリプトと、駄洒落の *玄人* になりたい人向けにWebサイトからデータをの *クロール* するスクリプトです。
 
-<br>
+<br/>
+
 # 環境構築
 
 「pipenv」もしくは「自前で設定したpython環境」を利用する事ができます。  
 pipenvを用いる場合は`pipenv install`の実行のみでOKです。  
 pipenvを利用しない場合は、requirements.txtを利用して各moduleをinstallして下さい。  
 
-<br>
+<br/>
+
 # 利用方法
 
 検索用の「dajare_search.py」と各ダジャレサイトのクローラとなる「dajare_crawler.py」を用意しています。
@@ -36,13 +38,15 @@ $ pipenv run python dajare_search.py みかん
 Webサイト *で得た* *データ* をjsonにdumpします。
 
 
-<br>
+<br/>
+
 pipenvを利用する場合は以下のように実行します。
 ```
 $ pipenv run python dajare_crawler.py --all
 ```
 
-<br>
+<br/>
+
 dajare_crawler.pyの引数は以下のようになっています。
 
 | args | description | クロール先 |
@@ -58,18 +62,21 @@ dajare_crawler.pyの引数は以下のようになっています。
 | --output OUTPUT | 出力ディレクトリを指定 | - |
 | --sleep SLEEP | requests毎のsleep (float) | - |
 
-<br>
+<br/>
+
 ダジャレネットのデータをsampleディレクトリにsleep 3.0秒/requests で取得する時は以下のようになります。
 ```
 $ python dajare_crawler.py -d --output ./sample --sleep 3.0
 ```
 
-<br>
+<br/>
+
 sleep値の設定等、スクレイピング時のルールについては、以下を参考にして下さい。  
 [Webスクレイピングする際のルールとPythonによる規約の読み込み - Stimulator](https://vaaaaaanquish.hatenablog.com/entry/2017/12/01/064227)
 
 
-<br>
+<br/>
+
 # 既存のデータ
 
 2020/02/21時点でのダジャレ統計は以下の通りです。
@@ -84,7 +91,8 @@ sleep値の設定等、スクレイピング時のルールについては、以
 | 究極のダジャレ集 | 1097 |
 
 
-<br>
+<br/>
+
 # 参考文献
 
 ### ダジャレ検出
@@ -118,6 +126,7 @@ sleep値の設定等、スクレイピング時のルールについては、以
 - 徐云帆, 荒木健治. "雑談対話システムにおける LSTM を用いた駄洒落による対話破綻回避の有効性." SIG-SLUD 5.02 (2018): 143-148. https://jsai.ixsq.nii.ac.jp/ej/?action=repository_action_common_download&item_id=9645&item_no=1&attribute_id=1&file_no=1
 - 谷津元樹. "統合型対話システムにおける話題適応及び駄洒落ユーモア処理に関する研究." (2017). https://eprints.lib.hokudai.ac.jp/dspace/bitstream/2115/65779/1/Motoki_Yatsu.pdf
 
-<br>
+<br/>
+
 # 開発
 Pull Requestをお待ちしております
