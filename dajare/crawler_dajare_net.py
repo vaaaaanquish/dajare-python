@@ -24,21 +24,20 @@ class CrawlerDajareNet(Crawler):
             url = f'http://www.dajare.net/{x}'
             bs = self.get_bs(url, 'shift-jis')
             bs = bs.find('table')
-            for row in bs.find('td').text.strip().split('\n'):
-                row = row.strip().split(' ')
-                if row[0].startswith('['):
-                    author = row[1]
-                else:
-                    text = ' '.join(row).replace('\u3000', '')
-                    output_list.append({
-                        'text': text,
-                        'url': url,
-                        'author': author,
-                        'author_link': 'dajare.net',
-                        'mean_score': 0.,
-                        'deviation_score': 0.,
-                        'category': [],
-                        'tag': [],
-                        'eval_list': []
-                    })
+            for row in bs.find('td').text.strip().split('['):
+                if len(row.split('\n')) < 2:
+                    continue
+                author = row.split('\n')[0].split(']')[1].split(' ')[1].strip()
+                text = ' '.join(row.split('\n')[1:]).replace('\n', ' ').replace('\u3000', '')
+                output_list.append({
+                    'text': text,
+                    'url': url,
+                    'author': author,
+                    'author_link': 'dajare.net',
+                    'mean_score': 0.,
+                    'deviation_score': 0.,
+                    'category': [],
+                    'tag': [],
+                    'eval_list': []
+                })
         return output_list
