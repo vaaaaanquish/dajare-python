@@ -30,7 +30,7 @@ $ pip install -r requirements.txt
 pipenvを利用する場合は以下のように実行します。
 
 ```
-$ pipenv run python dajare_search.py みかん
+$ pipenv run python dajare/dajare_search.py みかん
 
 みかん星は、まだ未完成‼️
 南関東では皆、みかん党
@@ -38,6 +38,16 @@ $ pipenv run python dajare_search.py みかん
 ...
 ```
 
+pypiからもコマンドを取得可能です。
+```
+$ pip install dajare
+$ dajare 布団
+
+布団がふっとんだ
+今日、布団出たら恐怖飛んでた
+猫、マントで寝込まんと？
+...
+```
 
 ## スクレイピング
 
