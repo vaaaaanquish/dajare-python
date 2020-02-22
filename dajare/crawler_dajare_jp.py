@@ -42,7 +42,7 @@ class CrawlerDajareJp(Crawler):
         return dajare_link_set
 
     def _get_author_works_link_set(self, output_list, link_set):
-        author_link = [x['author'] for x in output_list]
+        author_link = {x['author'] for x in output_list}
         dajare_link_set = set()
         for x in tqdm(author_link):
             data = {'ViewQuantity': 10000, 'AuthorName': x, 'ViewOffset': 0}
