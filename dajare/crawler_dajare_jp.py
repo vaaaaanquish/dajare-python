@@ -42,11 +42,10 @@ class CrawlerDajareJp(Crawler):
         return dajare_link_set
 
     def _get_author_works_link_set(self, output_list, link_set):
-        author_link = [x['author_link'] for x in output_list]
+        author_link = [x['author'] for x in output_list]
         dajare_link_set = set()
         for x in tqdm(author_link):
-            x = x.split('/')
-            data = {'ViewQuantity': 10000, 'AuthorName': x[2], 'ViewOffset': 0}
+            data = {'ViewQuantity': 10000, 'AuthorName': x, 'ViewOffset': 0}
             bs = self.post_bs('https://dajare.jp/search/', data)
             for u in bs.find_all('a', href=works_rex):
                 dajare_link_set.add(u.get('href'))
