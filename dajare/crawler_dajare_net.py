@@ -19,11 +19,11 @@ class CrawlerDajareNet(Crawler):
         return ['{:03}.htm'.format(x) for x in range(1, 50 + 1)] + [x.get('href') for x in bs.find_all('a', href=rex)]
 
     def _get_output_list(self, dump_list):
+        output_list = []
         for x in tqdm(dump_list):
             url = f'http://www.dajare.net/{x}'
             bs = self.get_bs(url, 'shift-jis')
             bs = bs.find('table')
-            output_list = []
             for row in bs.find('td').text.strip().split('\n'):
                 row = row.strip().split(' ')
                 if row[0].startswith('['):
