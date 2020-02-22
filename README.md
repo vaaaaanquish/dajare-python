@@ -9,6 +9,12 @@
 「pipenv」もしくは「自前で設定したpython環境」を利用する事ができます。  
 pipenvを用いる場合は`pipenv install`の実行のみでOKです。  
 pipenvを利用しない場合は、requirements.txtを利用して各moduleをinstallして下さい。  
+```
+$ pipenv install
+or
+$ pip install -r requirements.txt
+```
+
 
 <br/>
 
@@ -84,12 +90,60 @@ sleep値の設定等、スクレイピング時のルールについては、以
 | Webサイト | ダジャレ数 |
 | --- | --- |
 | ダジャレナビ | 48102 |
-| ダジャレステーション | 266 |
-| ダジャレネット | 64533 |
+| ダジャレステーション | 64533 |
+| ダジャレネット | 14 |
 | バカダス | 1070 |
 | ダジャレ辞典 | 275 |
 | 究極のダジャレ集 | 1097 |
 
+<br/>
+
+# Json format
+
+出力されるjsonは以下のようなフォーマットです。
+
+```
+{
+    "url": "https://dajare.jp/works/000/",
+    "text": "布団が吹っ飛んだ",
+    "author": "サンプル",
+    "author_link": "/author/サンプル/",
+    "mean_score": 5.0,
+    "deviation_score": 30.0,
+    "category": [
+        {
+            "link": "/category/1/",
+            "text": "動物"
+        },
+        {
+            "link": "/category/1/1/",
+            "text": "全般"
+        },
+        {
+            "link": "/category/1/1/1/",
+            "text": "全般"
+        }
+    ],
+    "tag": [
+        {
+            "link": "/keyword/布団/",
+            "text": "布団"
+        }
+    ],
+    "eval_list": [
+        {
+            "author": {
+                "link": "/author/テスト/",
+                "text": "テスト"
+            },
+            "score": 3.0,
+            "datetime": "2015/3/14 10:59"
+        },
+    ]
+}
+```
+
+取得できない場合は空テキストや0が入ります。このフォーマットは全てのクロール先サイトで共通です。
 
 <br/>
 
