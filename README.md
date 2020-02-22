@@ -145,6 +145,7 @@ sleep値の設定等、スクレイピング時のルールについては、以
 
 取得できない場合は空テキストや0が入ります。このフォーマットは全てのクロール先サイトで共通です。
 
+
 <br/>
 
 # 参考文献
@@ -183,4 +184,13 @@ sleep値の設定等、スクレイピング時のルールについては、以
 <br/>
 
 # 開発
-Pull Requestをお待ちしております
+Pull Requestをお待ちしております。READMEにダジャレを生やすだけでもOKです。
+<br/>
+
+
+開発者向けのツールキットもリポジトリ内に含んでいますので活用して下さい。
+
+- クロールした結果のjsonの中身を見るためのjupyter nootbook
+	- https://github.com/vaaaaanquish/dajare-python/blob/master/ipynb/check_json.ipynb
+- クロールの開発用jupyter notebook
+    - https://github.com/vaaaaanquish/dajare-python/blob/master/ipynb/scraping_dev.ipynb
