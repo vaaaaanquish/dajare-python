@@ -65,14 +65,15 @@ dajare_crawler.pyの引数は以下のようになっています。
 | -e, --e | バカダス | http://www.biwa.ne.jp/~aki-ina/gyagu.html |
 | -f, --f | ダジャレ辞典 | https://dajareshuu.web.fc2.com |
 | -g, --g | 究極のダジャレ集 | http://syuukaizyo.fc2web.com/02.html |
+| -i, --i | ダジャレの殿堂 | http://archives.kaishaseikatsu.jp |
 | --output OUTPUT | 出力ディレクトリを指定 | - |
 | --sleep SLEEP | requests毎のsleep (float) | - |
 
 <br/>
 
-ダジャレネットのデータをsampleディレクトリにsleep 3.0秒/requests で取得する時は以下のようになります。
+ダジャレネットとダジャレ辞典のデータをsampleディレクトリにsleep 3.0秒/requests で取得する時は以下のようになります。
 ```
-$ python dajare_crawler.py -d --output ./sample --sleep 3.0
+$ python dajare_crawler.py -d -f --output ./sample --sleep 3.0
 ```
 
 <br/>
@@ -95,6 +96,7 @@ sleep値の設定等、スクレイピング時のルールについては、以
 | バカダス | 1070 |
 | ダジャレ辞典 | 1115 |
 | 究極のダジャレ集 | 275 |
+| ダジャレの殿堂 | 2200 |
 
 <br/>
 
