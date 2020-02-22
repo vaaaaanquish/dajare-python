@@ -73,6 +73,10 @@ class CrawlerDajareJp(Crawler):
             # panel
             bs = bs.find(id='PanelContentMain')
 
+            # error
+            if not bs:
+                continue
+
             # dajare text, author
             panel = bs.find(class_='PanelBox')
             text = panel.find('span').text
