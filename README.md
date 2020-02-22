@@ -4,20 +4,6 @@
 
 <br/>
 
-# 環境構築
-
-「pipenv」もしくは「自前で設定したpython環境」を利用する事ができます。  
-pipenvを用いる場合は`pipenv install`の実行のみでOKです。  
-pipenvを利用しない場合は、requirements.txtを利用して各moduleをinstallして下さい。  
-```
-$ pipenv install
-or
-$ pip install -r requirements.txt
-```
-
-
-<br/>
-
 # 利用方法
 
 検索用の「dajare_search.py」と各ダジャレサイトのクローラとなる「dajare_crawler.py」を用意しています。
@@ -26,19 +12,7 @@ $ pip install -r requirements.txt
 
 ダジャレステーションの検索窓を利用して、ダジャレを検索します。
 
-
-pipenvを利用する場合は以下のように実行します。
-
-```
-$ pipenv run python dajare/dajare_search.py みかん
-
-みかん星は、まだ未完成‼️
-南関東では皆、みかん党
-みかんが三日も見っかんねぇ
-...
-```
-
-pypiからもコマンドを取得可能です。
+pypiからdajareコマンドを取得可能です。
 ```
 $ pip install dajare
 $ dajare 布団
@@ -49,10 +23,23 @@ $ dajare 布団
 ...
 ```
 
+
 ## スクレイピング
 
 Webサイト *で得た* *データ* をjsonにdumpします。
 
+<br/>
+
+### 環境構築
+
+「pipenv」もしくは「自前で設定したpython環境」を利用する事ができます。  
+pipenvを用いる場合は`pipenv install`の実行のみでOKです。  
+pipenvを利用しない場合は、requirements.txtを利用して各moduleをinstallして下さい。  
+```
+$ pipenv install
+or
+$ pip install -r requirements.txt
+```
 
 <br/>
 
