@@ -104,13 +104,13 @@ sleep値の設定等、スクレイピング時のルールについては、以
 
 ```
 {
-    "url": "https://dajare.jp/works/000/",
-    "text": "布団が吹っ飛んだ",
-    "author": "サンプル",
-    "author_link": "/author/サンプル/",
-    "mean_score": 5.0,
-    "deviation_score": 30.0,
-    "category": [
+    "url": "https://dajare.jp/works/000/",    # ダジャレが記載されているURL
+    "text": "布団が吹っ飛んだ",    # ダジャレ
+    "author": "サンプル",    # ダジャレ投稿者
+    "author_link": "/author/サンプル/",    # ダジャレ投稿者へのLink
+    "mean_score": 5.0,    # ダジャレ評価(平均)
+    "deviation_score": 30.0,    # ダジャレ評価(偏差値)
+    "category": [    # ダジャレカテゴリのリスト
         {
             "link": "/category/1/",
             "text": "動物"
@@ -124,13 +124,13 @@ sleep値の設定等、スクレイピング時のルールについては、以
             "text": "全般"
         }
     ],
-    "tag": [
+    "tag": [    # ダジャレに紐付いたキーワードのリスト
         {
             "link": "/keyword/布団/",
             "text": "布団"
         }
     ],
-    "eval_list": [
+    "eval_list": [    # 評価のリスト
         {
             "author": {
                 "link": "/author/テスト/",
