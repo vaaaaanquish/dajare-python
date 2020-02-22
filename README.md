@@ -28,8 +28,6 @@ $ dajare 布団
 
 Webサイト *で得た* *データ* をjsonにdumpします。
 
-<br/>
-
 ### 環境構築
 
 「pipenv」もしくは「自前で設定したpython環境」を利用する事ができます。  
@@ -40,8 +38,6 @@ $ pipenv install
 or
 $ pip install -r requirements.txt
 ```
-
-<br/>
 
 ### 実行
 
