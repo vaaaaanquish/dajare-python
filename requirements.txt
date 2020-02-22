@@ -1,0 +1,4 @@
+beautifulsoup4==4.7.1
+requests==2.21.0
+requests-cache==0.5.2
+tqdm==4.38.0
