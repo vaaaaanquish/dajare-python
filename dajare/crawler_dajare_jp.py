@@ -70,61 +70,67 @@ class CrawlerDajareJp(Crawler):
             url = f'https://dajare.jp{i}'
             bs = self.get_bs(url)
 
-            # panel
             bs = bs.find(id='PanelContentMain')
-
-            # error
-            if not bs:
+            try:
+                output_list.append(self._get_output(bs, url))
+            except Exception as e:
+                print('Exception:', str(e))
+                print('except url:', url)
                 continue
+        return output_list
 
-            # dajare text, author
-            panel = bs.find(class_='PanelBox')
-            text = panel.find('span').text
-            a = panel.find('a')
-            author = a.text if a else panel.find('div', align="right").text
-            author_link = panel.find('a').get('href') if a else ''
+    def _get_output(self, bs, url):
+        panel = bs.find(class_='PanelBox')
+        text = panel.find('span').text
+        a = panel.find('a')
+        author = a.text if a else panel.find('div', align="right").text
+        author_link = panel.find('a').get('href') if a else ''
 
-            # dajare meta data
-            fieldset = bs.find_all('fieldset')
-            eval_list = []
-            for field in fieldset:
-                legend = field.find('legend')
-                if not legend:
-                    if '平均スコア' in field.text:
-                        # dajare score
-                        x = field.text.replace('\n', '')
-                        mean_score = float(mean_rex.findall(x)[0])
+        # dajare meta data
+        fieldset = bs.find_all('fieldset')
+        eval_list = []
+        for field in fieldset:
+            legend = field.find('legend')
+            if not legend:
+                if '平均スコア' in field.text:
+                    # dajare score
+                    x = field.text.replace('\n', '')
+                    tmp = mean_rex.findall(x)
+                    if type(tmp) == list and len(tmp) > 0:
+                        mean_score = float(tmp[0])
                         dev_score = float(dev_rex.findall(x)[0])
                     else:
-                        # dajare evaluation scores
-                        eval_row = {}
-                        for row in field.find_all(class_='PanelWorkEvaluationList'):
-                            col = row.find('dt').text.strip()
-                            if col == '投稿者':
-                                a = row.find('a')
-                                href = a.get('href') if a else ''
-                                eval_row.update({'author': {'link': href, 'text': row.text.strip()}})
-                            if col == 'スコア':
-                                eval_row.update({'score': float(row.text.replace('スコア\n', ''))})
-                            if col == '評価投稿時刻':
-                                eval_row.update({'datetime': row.text.replace('評価投稿時刻', '').strip()})
-                        eval_list.append(eval_row)
-                elif 'カテゴリー' in legend.text:
-                    # dajare category
-                    category = [{'link': x.get("href"), 'text': x.text} for x in set(field.find_all('a'))]
-                elif 'タグ' in legend.text:
-                    # dajare tags
-                    tag = [{'link': x.get("href"), 'text': x.text} for x in field.find_all('a')]
+                        mean_score = 0.0
+                        dev_score = 0.0
+                else:
+                    # dajare evaluation scores
+                    eval_row = {}
+                    for row in field.find_all(class_='PanelWorkEvaluationList'):
+                        col = row.find('dt').text.strip()
+                        if col == '投稿者':
+                            a = row.find('a')
+                            href = a.get('href') if a else ''
+                            eval_row.update({'author': {'link': href, 'text': row.text.strip()}})
+                        if col == 'スコア':
+                            eval_row.update({'score': float(row.text.replace('スコア\n', ''))})
+                        if col == '評価投稿時刻':
+                            eval_row.update({'datetime': row.text.replace('評価投稿時刻', '').strip()})
+                    eval_list.append(eval_row)
+            elif 'カテゴリー' in legend.text:
+                # dajare category
+                category = [{'link': x.get("href"), 'text': x.text} for x in set(field.find_all('a'))]
+            elif 'タグ' in legend.text:
+                # dajare tags
+                tag = [{'link': x.get("href"), 'text': x.text} for x in field.find_all('a')]
 
-            output_list.append({
-                'url': url,
-                'text': text,
-                'author': author,
-                'author_link': author_link,
-                'mean_score': mean_score,
-                'deviation_score': dev_score,
-                'category': category,
-                'tag': tag,
-                'eval_list': eval_list
-            })
-        return output_list
+        return {
+            'url': url,
+            'text': text,
+            'author': author,
+            'author_link': author_link,
+            'mean_score': mean_score,
+            'deviation_score': dev_score,
+            'category': category,
+            'tag': tag,
+            'eval_list': eval_list
+        }
