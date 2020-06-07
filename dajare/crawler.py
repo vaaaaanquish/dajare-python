@@ -15,8 +15,12 @@ class Crawler:
         self.sleep_time = sleep_time
 
     def get_bs(self, url, encoding=None):
-        time.sleep(self.sleep_time)
-        response = requests.get(url)
+        while 1:
+            try:
+                response = requests.get(url)
+                break
+            except:
+                time.sleep(self.sleep_time)
         if encoding:
             response.encoding = encoding
         return BeautifulSoup(response.text, features='html.parser')

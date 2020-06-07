@@ -71,23 +71,32 @@ class CrawlerDajareJp(Crawler):
             bs = self.get_bs(url)
 
             bs = bs.find(id='PanelContentMain')
+            if not bs:
+                continue
             try:
                 output_list.append(self._get_output(bs, url))
             except Exception as e:
                 print('Exception:', str(e))
                 print('except url:', url)
-                continue
         return output_list
 
     def _get_output(self, bs, url):
         panel = bs.find(class_='PanelBox')
-        text = panel.find('span').text
+        text = panel.find('span')
+        text = text.text if text else panel.find('h2').text
         a = panel.find('a')
-        author = a.text if a else panel.find('div', align="right").text
+        author = a.text if a else None
+        if not author:
+            author = panel.find('div', align="right")
+            author = author.text if author else ''
         author_link = panel.find('a').get('href') if a else ''
 
         # dajare meta data
         fieldset = bs.find_all('fieldset')
+        mean_score = 0.0
+        dev_score = 0.0
+        category = []
+        tag = []
         eval_list = []
         for field in fieldset:
             legend = field.find('legend')
@@ -99,9 +108,6 @@ class CrawlerDajareJp(Crawler):
                     if type(tmp) == list and len(tmp) > 0:
                         mean_score = float(tmp[0])
                         dev_score = float(dev_rex.findall(x)[0])
-                    else:
-                        mean_score = 0.0
-                        dev_score = 0.0
                 else:
                     # dajare evaluation scores
                     eval_row = {}
