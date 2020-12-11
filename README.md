@@ -154,6 +154,7 @@ sleep値の設定等、スクレイピング時のルールについては、以
 - おもしろいダジャレを入力すると布団が吹っ飛ぶ装置を作った - Qiita https://qiita.com/fujit33/items/dbfbd7a2aa3858067b6c
 - ダジャレ TechTalk - エムスリーテックブログ https://www.m3tech.blog/entry/2018/08/03/182447
 - ニコニココメントデータからの駄洒落検出 - 谷津元樹 青山学院大学 https://www.nii.ac.jp/dsc/idr/userforum/startup/IDR-UF2019_S03.pdf
+- ダジャレを判定する - Stimulator https://vaaaaaanquish.hatenablog.com/entry/2020/12/11/122721
 
 ### ダジャレデータベース
 - 荒木健治. "駄洒落データベースの構築及び分析" ことば工学研究会: 人工知能学会第 2 種研究会ことば工学研究会 57 (2018): 39-48. http://arakilab.media.eng.hokudai.ac.jp/~araki/2017/2017-C-3.pdf
@@ -164,8 +165,8 @@ sleep値の設定等、スクレイピング時のルールについては、以
 ### ダジャレ生成
 - 内田ゆず, 荒木健治. "オノマトペに着目した駄洒落の面白さの分析―駄洒落の自動生成に向けて―." 日本知能情報ファジィ学 第35回ファジィシステムシンポジウム. 2019. https://www.jstage.jst.go.jp/article/fss/35/0/35_332/_article/-char/ja/
 - 金久保正明. "形態素解析手法と通俗的単語群に基づく類音文変換システム." 情報処理学会論文誌 54.7 (2013): 1937-1950. https://ipsj.ixsq.nii.ac.jp/ej/?action=pages_view_main&active_action=repository_view_main_item_detail&item_id=94391&item_no=1&page_id=13&block_id=8
-田辺　公一朗. "駄洒落のコンピュータによる処理-- 駄洒落生成システムの基本設計 --" Sanno University Bulletin Vol.26 No. 1 September 2005 https://www.sanno.ac.jp/undergraduate/library/cpir4n0000006hnm-att/260104.pdf
-阿部香央莉, et al. "Zunkobot: 複数の知識モジュールを統合した雑談対話システム." SIG-SLUD 5.02 (2018): 112-117. https://jsai.ixsq.nii.ac.jp/ej/?action=repository_action_common_download&item_id=9639&item_no=1&attribute_id=1&file_no=1
+- 田辺　公一朗. "駄洒落のコンピュータによる処理-- 駄洒落生成システムの基本設計 --" Sanno University Bulletin Vol.26 No. 1 September 2005 https://www.sanno.ac.jp/undergraduate/library/cpir4n0000006hnm-att/260104.pdf
+- 阿部香央莉, et al. "Zunkobot: 複数の知識モジュールを統合した雑談対話システム." SIG-SLUD 5.02 (2018): 112-117. https://jsai.ixsq.nii.ac.jp/ej/?action=repository_action_common_download&item_id=9639&item_no=1&attribute_id=1&file_no=1
 
 ### ダジャレ分析
 - 内田ゆず, 荒木健治. "駄洒落に使用されるオノマトペの特徴分析." 知能と情報 32.1 (2020): 507-511. https://www.jstage.jst.go.jp/article/jsoft/32/1/32_507/_article/-char/ja/
